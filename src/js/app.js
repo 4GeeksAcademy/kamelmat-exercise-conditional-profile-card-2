@@ -30,17 +30,18 @@ function render(variables = {}) {
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
   // reset the website body with the new html output
-  document.querySelector("#widget_content").innerHTML = `<div class="widget">
+  document.querySelector("#widget_content").innerHTML = `
+        <div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
           <h1>${variables.name? variables.name : ""}</h1>
           <h2>${variables.role? variables.role : "sin experiencia"}</h2>
-          <h3>${variables.city? variables.city : ""} ${variables.country? variables.country : ""}</h3>
+          <h3>${variables.city? variables.city + ", ": ""} ${variables.country? variables.country : ""}</h3>
           <ul class=${variables.socialMediaPosition}>
-            <li><a href=${variables.twitter? variables.twitter : ""}><i class="fab fa-twitter"></i></a></li>
-            <li><a href=${variables.github? variables.github : ""}><i class="fab fa-github"></i></a></li>
-            <li><a href=${variables.linkedin? variables.linkedin : ""}><i class="fab fa-linkedin"></i></a></li>
-            <li><a href=${variables.instagram? variables.instagram : ""}><i class="fab fa-instagram"></i></a></li>
+            <li><a href=${variables.twitter? variables.twitter : " "}><i class="fab fa-twitter"></i></a></li>
+            <li><a href=${variables.github? variables.github : " "}><i class="fab fa-github"></i></a></li>
+            <li><a href=${variables.linkedin? variables.linkedin : " "}><i class="fab fa-linkedin"></i></a></li>
+            <li><a href=${variables.instagram? variables.instagram : " "}><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
