@@ -50,14 +50,34 @@ function render(variables = {}) {
 /**
  * Don't change any of the lines below, here is where we do the logic for the dropdowns
  */
+
+function getRandomAvatarURL() {
+  const randomNumber = Math.floor(Math.random() * 100);
+  const avatarURL = `https://randomuser.me/api/portraits/women/${randomNumber}.jpg`;
+  return avatarURL;
+}
+
+const backgrounds = [
+"https://images.pexels.com/photos/949587/pexels-photo-949587.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+"https://images.pexels.com/photos/956999/milky-way-starry-sky-night-sky-star-956999.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+"https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+"https://images.pexels.com/photos/1191710/pexels-photo-1191710.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+];
+
+function getRandomBackground() {
+  const randomIndex = Math.floor(Math.random() * backgrounds.length);
+  return backgrounds[randomIndex];
+}
+const randomBackground = getRandomBackground();
+
 window.onload = function() {
   window.variables = {
     // if includeCover is true the algorithm should show the cover image
     includeCover: true,
     // this is the image's url that will be used as a background for the profile cover
-    background: "https://images.unsplash.com/photo-1511974035430-5de47d3b95da",
+    background: randomBackground,
     // this is the url for the profile avatar
-    avatarURL: "https://randomuser.me/api/portraits/women/42.jpg",
+    avatarURL: getRandomAvatarURL(),
     // social media bar position (left or right)
     socialMediaPosition: "position-left",
     // social media usernames
